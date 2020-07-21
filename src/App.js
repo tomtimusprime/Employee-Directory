@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Pokedex from './Pokedex';
+import Employeetable from './components/employeetable/Employeetable';
 import './App.css';
 
 class App extends Component {
   render() {
     return (<div className="App">
-      <Pokedex />
+      <Employeetable />
     </div>
     )
   }
