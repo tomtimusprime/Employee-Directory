@@ -6,8 +6,12 @@ class Employeetable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: "Search"
+            search: ""
         };
+    }
+
+    updateSearch(event) {
+        this.setState({search: event.target.value.substr(0, 20)});
     }
     
     static defaultProps = {
@@ -23,14 +27,25 @@ class Employeetable extends Component {
           ]
     };
     render() {
+
+        let filteredContacts = this.props.pokemon.filter(
+            (contact) => {
+                return contact.name.toLowerCase().indexOf(this.state.search) !== -1;
+            }
+        );
         return (
             <div className="Pokedex">
                 <h1 className="center">Employee Directory</h1>
-                <input className="center" type="text" placeholder="Search" value={this.state.search} />
+                <label>Search</label>
+                <input className="center" type="text"
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)} 
+                />
+               
                 <div className="Pokedex-cards">
-                    {this.props.pokemon.map((p) => (
-                        <Employeecard id={p.id} name={p.name} type={p.type} exp={p.desknumber} />
-                    ))}
+                {filteredContacts.map((contact) => {
+                    return <Employeecard id={contact.id} name={contact.name} key={contact.id} />
+                })}
                 </div>
             </div>
         )
@@ -39,3 +54,9 @@ class Employeetable extends Component {
 }
 
 export default Employeetable;
+
+// <div className="Pokedex-cards">
+// {this.props.pokemon.map((p) => (
+//     <Employeecard id={p.id} name={p.name} type={p.type} exp={p.desknumber} />
+// ))}
+// </div>

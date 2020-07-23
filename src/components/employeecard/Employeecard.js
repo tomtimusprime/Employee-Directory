@@ -14,7 +14,7 @@ const betterURL = (id) => {
 class Employeecard extends Component {
     render(){
         let imgSrc = `${betterURL(this.props.id)}`;
-        console.log(betterURL(this.props.id));
+        
         return (
             <div className="Pokecard">
                 <h1 className="Pokecard-title">Name: {this.props.name}</h1>
@@ -27,3 +27,4 @@ class Employeecard extends Component {
 }
 
 export default Employeecard;
+// console.log(betterURL(this.props.id));
