@@ -9,3 +9,18 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.searchBar, .buttons {
+    display: flex;
+    direction: column;
+    justify-content: center;
+    width: 100%
+}
+
+.buttons {
+    margin: 15px;
+}
+
+.buttons button {
+    margin: 0 1rem;
+}
